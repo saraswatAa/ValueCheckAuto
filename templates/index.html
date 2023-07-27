@@ -1,14 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form Data Storage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-    hello world 2
+    <nav class="navbar">
+        <div class="container">
+            <a href="/">Home</a>
+            <a href="/submit">Submit Form</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Form Data Storage</h1>
+        <form action="/submit" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+
+
+            <label for="car_name">Car Name:</label>
+            <select id="car_name" name="car_name" required>
+                {% for car_name in car_names %}
+                <option value="{{ car_name }}">{{ car_name }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="year">Year:</label>
+            <select id="year" name="year" required>
+                {% for year in years %}
+                <option value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="distance">Distance:</label>
+            <input type="number" id="distance" name="distance" required><br>
+
+            <label for="owner">Owner:</label>
+            <select id="owner" name="owner" required>
+                {% for owner in owners %}
+                <option value="{{ owner }}">{{ owner }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="fuel">Fuel:</label>
+            <select id="fuel" name="fuel" required>
+                {% for fuel in fuels %}
+                <option value="{{ fuel }}">{{ fuel }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required><br>
+
+            <label for="drive">Drive:</label>
+            <select id="drive" name="drive" required>
+                {% for drive in drives %}
+                <option value="{{ drive }}">{{ drive }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label for="type">Type:</label>
+            <select id="type" name="type" required>
+                {% for type in types %}
+                <option value="{{ type }}">{{ type }}</option>
+                {% endfor %}
+            </select><br>
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </body>
 
 </html>

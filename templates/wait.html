@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wait Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+        }
+    </style>
+    <script>
+
+        // Function to run the Jupyter Notebook and redirect after 40 seconds
+        function runJupyterAndRedirect() {
+            // Run the Jupyter Notebook in the background using XMLHttpRequest
+            var request = new XMLHttpRequest();
+            request.open("GET", "/run_jupyter", true);
+            request.send();
+
+            // Redirect to success.html after 40 seconds
+            setTimeout(function () {
+                window.location.href = "/success";
+            }, 40000); // 40 seconds delay (in milliseconds)
+        }
+
+        // Call the runJupyterAndRedirect function when the page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            runJupyterAndRedirect();
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Wait Page</h1>
+    <p>Please wait while the Jupyter Notebook is running...</p>
+</body>
+
+</html>
